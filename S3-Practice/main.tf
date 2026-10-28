@@ -10,7 +10,7 @@ resource "aws_s3_bucket" "bucket-1" {
     bucket = "iam-practicepiutr-bucket"
     key = "test.txt"
     source = "test.txt"
-    source_hash = fileexists("test.txt")
+    source_hash = filemd5("test.txt")                       ###terraform sould be notified when the changes done in existing local file.
     depends_on = [ aws_s3_bucket_versioning.bucket-versioning ]
   }
 
